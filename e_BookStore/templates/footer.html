@@ -1,0 +1,23 @@
+
+    <!-- Subscription Form -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <h2 class="text-xl font-bold mb-3">📩 Subscribe to Our Newsletter</h2>
+            <form class="flex flex-col md:flex-row justify-center items-center">
+                <input type="text" placeholder="Your Name" class="p-2 rounded mr-2 text-black" required>
+                <input type="email" placeholder="Your Email" class="p-2 rounded mr-2 text-black" required>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 3000 },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
+        });
+    </script>
+</body>
+</html>

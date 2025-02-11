@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+# from .models import Book
 from .models import *
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -9,6 +10,16 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+# model for category of book
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
@@ -24,15 +35,6 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-# model for category of book
-class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
 
 # model for cart where user can place the selected items
 class Cart(models.Model):
@@ -44,9 +46,7 @@ class Cart(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.book.title} ({self.quantity})"
 
-from django.contrib.auth.models import User
-from django.db import models
-from .models import Book
+
 #  order model get by the user
 class Order(models.Model):
     STATUS_CHOICES = [
